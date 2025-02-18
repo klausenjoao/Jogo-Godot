@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://gvtg8dkcaffm"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_uejx8"]
+[ext_resource type="Texture2D" uid="uid://18c7tlstjvvb" path="res://assets/player_00.png" id="1_vvdfp"]
+[ext_resource type="Texture2D" uid="uid://byw0nbubwguph" path="res://assets/player_01.png" id="2_2tsuo"]
+[ext_resource type="Texture2D" uid="uid://qmt2p3trqynv" path="res://assets/player_02.png" id="3_ia5m4"]
+[ext_resource type="Texture2D" uid="uid://6s5mpcmo56t8" path="res://assets/player_03.png" id="4_me8gt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xn6c0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vvdfp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2tsuo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ia5m4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_me8gt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fn50i"]
+height = 88.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_uejx8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xn6c0")
+frame = 1
+frame_progress = 0.928205
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_fn50i")
